@@ -6,7 +6,7 @@ print(
             Trust Fund Buddy
 
 Totals your monthly spending so that you trust fund doesn't run out
-(and you're forced ti get a real job).
+(and you're forced to get a real job).
 
 Please enter the requested, monthly costs. Since you're rich, ignore
 pennies and use only dollar amounts.
