@@ -1,4 +1,6 @@
+# Chapter 3, Challenge 2
 # Flip A Coin program
+# Write a program that flips a coin 100 times and then tells you the number of heads and tails.
 
 import random
 
