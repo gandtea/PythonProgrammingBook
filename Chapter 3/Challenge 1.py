@@ -1,4 +1,7 @@
+# Chapter 3, Challenge 1
 # Fortune Cookies Generator 
+# Write a program that simulates a fortune cookie. 
+# The program should display one of five unique fortunes, at random, each time it's run.
 
 import random
 
