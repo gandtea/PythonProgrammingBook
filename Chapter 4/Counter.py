@@ -13,4 +13,4 @@ print("\n\nCounting backwards:")
 for i in range(10, 0, -1):
     print(i, end=" ")
 
-input("\n\nPress the enter key to exit.\n")
+input("\n\nPress the enter key to exit.")
