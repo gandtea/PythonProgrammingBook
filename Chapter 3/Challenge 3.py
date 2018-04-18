@@ -1,5 +1,7 @@
-# Guess My Number with fixed number of tries
-
+# Chapter 3, Challenge 3
+# Guess My Number with fixed number of tries
+# Modify the Guess My Number game so that the player has a limited number of guesses. 
+# If the player fails to guess in time, the program should display an appropriately chastising message.
 
 import random
 
@@ -29,7 +31,7 @@ if guess == the_number:
     print("\nYou guessed it! The number was", the_number)
     print("And it only took you", tries, "tries!")
 else:
-    print("You ran out of tries, better luck next time!")
+    print("You ran out of tries, you suck!")
     print("The number was", the_number)
 
 input("\n\nPress the enter key to exit.")
