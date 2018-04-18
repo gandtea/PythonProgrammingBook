@@ -1,5 +1,8 @@
 # Chapter 2, Challenge 1
-# Legal Variable names
+# Create a list of legal and illegal variable names. 
+# Describe why each is either legal or illegal. 
+# Next, create a list of "good" and "bad" legal variable names. 
+# Describe why each is either a good or bad choice for a variable name.
 
 hello = "hello"
 Hello = "Hello"
@@ -17,7 +20,7 @@ CAPITAL_LETTERS = "Constant variables should be in capital letters."
 
 # Good and bad
 
-# Also recommended to keep the short, but descriptive.
+# Keep variables short but descriptive.
 # Don't start the variable with an underscore - they have a special
 # meaning in Python.
 # Be consistent!
