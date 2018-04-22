@@ -1,7 +1,9 @@
 # Chapter 7 Notes
 
 For Read It.py file - you will also need the file read_it.txt in the same directory as the Read It.py file for it to work.
-If you can't make it work (I couldn't at first) you can type the folder directory (where the file is stored) in the Read It.py file before the name of the file - e.g. users/GeorginaDean/Documents/Python/read_it.txt 
+If you can't make it work (I couldn't at first) you can type the folder directory (where the file is stored) in the Read It.py file before the name of the file - e.g. users/GeorginaDean/Documents/Python/read_it.txt
+
+For Trivia Challenge.py file - you will also need the file trivia_file1.txt
 
 *Challenge 1* - Improve the Trivia Challenge game so that each question has a unique point value associated with it. The player's score should be the total of all the point values of the questions he or she answres correctly.
 
