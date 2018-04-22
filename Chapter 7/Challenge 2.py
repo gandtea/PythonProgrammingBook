@@ -1,5 +1,6 @@
-# Trivia Challenge inc. Chap 7, Chal 1
-# Trivia game that reads a plain text file
+# Chapter 7, Challenge 2
+# Trivia game that reads a plain text file and reads and writes 
+# high scores in a pickle.dat file
 
 import sys
 
