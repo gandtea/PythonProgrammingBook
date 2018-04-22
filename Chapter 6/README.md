@@ -6,4 +6,4 @@
 
 *Challenge 3* - Modify the new version of Guess My Number you created in the last challenge so that the program's code is in a function called main(). Don't forget to call main() so that you can play the game.
 
-•Challenge 4* - Write a new computer_move() function for the Tic-Tac-Toe game to plug the hole in the computer's strategy. See if you can create an opponent that is unbeatable!
+*Challenge 4* - Write a new computer_move() function for the Tic-Tac-Toe game to plug the hole in the computer's strategy. See if you can create an opponent that is unbeatable!
