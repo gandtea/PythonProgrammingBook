@@ -27,7 +27,7 @@ for value in (None, "Hi!"):
 print()
 for value in (None, "Hi!"):
     try:
-        print("Attempeting to convert", value, "-->", end=" ")
+        print("Attempting to convert", value, "-->", end=" ")
         print(float(value))
     except TypeError:
         print("I can only convert a string or a number!")
