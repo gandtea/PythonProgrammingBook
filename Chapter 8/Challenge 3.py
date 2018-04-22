@@ -1,3 +1,4 @@
+# Chapter 8, Challenge 3
 # Critter Caretaker
 # A virtual pet to take care for
 
