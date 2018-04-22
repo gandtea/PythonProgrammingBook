@@ -7,7 +7,7 @@ For Trivia Challenge.py file - you will also need the file trivia_file1.txt
 
 *Challenge 1* - Improve the Trivia Challenge game so that each question has a unique point value associated with it. The player's score should be the total of all the point values of the questions he or she answres correctly.
 
-*Challenge 2* - Improve the Trivia Challenge game so that it maintains a high-scores list in a file. The program should record the player's name and score if the player makes the list. Store the high scores using a pickled object.
+*Challenge 2* - Improve the Trivia Challenge game so that it maintains a high-scores list in a file. The program should record the player's name and score if the player makes the list. Store the high scores using a pickled object. Uses files trivia_file2.txt and high_scores_pickle.dat. 
 
 *Challenge 3* - Change the way the high-scores functionality you created in the last challenge is implemented. This time, use a plain text file to store the list.
 
