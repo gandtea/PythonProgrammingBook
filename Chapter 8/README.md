@@ -1,5 +1,4 @@
 # Chapter 8 notes
-
 *Challenge 1* - Improve the Critter Caretaker program by allowing the user to specify how much food he or she feeds the critter and how long he or she plays with the critter. Have these values affect how quickly the critter's hunger and boredom levels drop.
 
 *Challenge 2* - Write a program that simulates a television by creating it as an object. The user should be able to enter a channel number and raise or lower the volume. Make sure that the channel number and volume level stays within valid ranges.
