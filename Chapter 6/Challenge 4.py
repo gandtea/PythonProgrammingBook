@@ -116,8 +116,7 @@ def human_move(board, human):
                   " another. \n")
     print("Fine...")
     return move
-
-def computer_move(board, computer, human):
+ef computer_move(board, computer, human):
     """Make computer move."""
     # make a copy to work with since function will be changing list
     board = board[:]
@@ -154,7 +153,7 @@ def computer_move(board, computer, human):
     
     elif moves_left == 8:
         if (0 not in legal_moves(board)) or (2 not in legal_moves(board)) or \
-        (6 not in legal_moves(board)) or (8 not in legal_moves(board)):
+           (6 not in legal_moves(board)) or (8 not in legal_moves(board)):
             move  = 4
         elif (1 not in legal_moves(board)) or (3 not in legal_moves(board)):
             move = 0
@@ -176,11 +175,23 @@ def computer_move(board, computer, human):
         return move
 
     # if fourth move and centre isn't taken yet, take it!
+    # else if both corners on opposite sides of centre piece taken, take side.
+    # otherwise, follow 'best moves'
     elif moves_left == 6:
         if 4 in legal_moves(board):
             move = 4
-        print(move)
-        return move
+            print(move)
+            return move
+        elif (0 not in legal_moves(board)) and (4 not in legal_moves(board)) \
+             and (8 not in legal_moves(board)):
+            move = 7
+            print(move)
+            return move
+        elif (2 not in legal_moves(board)) and (4 not in legal_moves(board)) \
+             and (6 not in legal_moves(board)):
+            move = 1
+            print(move)
+            return move
     
 
     # if fifth move & the human made a dumb move (so they aren't trying to win)
@@ -188,6 +199,7 @@ def computer_move(board, computer, human):
         if (4 not in legal_moves(board)) and (1 not in legal_moves(board)):
             # note, 7 & 0 won't be in legal moves as computer already taken them
             move = 6
+        print('Using fifth move')
         print(move)
         return move
         
@@ -195,6 +207,7 @@ def computer_move(board, computer, human):
     # else, take best move
     BEST_MOVES = (0, 2, 4, 6, 8, 1, 3, 5, 7)
     for move in BEST_MOVES:
+        print('Using best moves')
         if move in legal_moves(board):
             print(move)
             return move
