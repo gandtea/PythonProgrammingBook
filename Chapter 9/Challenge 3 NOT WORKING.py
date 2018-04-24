@@ -2,8 +2,6 @@
 # Improve the Blackjack project by allowing players to bet. Keep track of each
 # player's bankroll and remove any player who runs out of money.
 
-# You'll need the cards and games modules for this to work.
-
 import cards, games
 
 class BJ_Card(cards.Card):
@@ -149,71 +147,82 @@ class BJ_Game(object):
                 player.bust()
 
     def play(self):
-        # check how many cards in the deck. If less that 7 times the number
-        # of players, clear the deck, repopulate and shuffle.
-        if len(self.deck.cards) < (len(self.players)*7):
-            self.deck.clear()
-            self.deck.populate()
-            self.deck.shuffle()
+        # moved the 'again' into here since Challenge 1 to allow for stopping
+        # game when all  the players have lost their money.
+        again = None
+        while again != 'n':
+            # check how many cards in the deck. If less that 7 times the number
+            # of players, clear the deck, repopulate and shuffle.
+            if len(self.deck.cards) < (len(self.players)*7):
+                self.deck.clear()
+                self.deck.populate()
+                self.deck.shuffle()
 
-        # check the players have money - remove any players who don't
-        print(self.players)
-        for player in self.players:
-            print(player.name, "has", player.money, "in bankroll baby!")
-            if player.money == 0:
-                print(player.money)
-                print(player.name.title(), "has no money left and has been "
-                      "removed from the game.")
-                self.players.remove(player)
-        print(self.players)
-        
-        # place bets
-        for player in self.players:
-            print("\n", player.name.title(), ", you have £", player.money, " in"
-              " your bankroll. You can only bet up to this amount.", sep = "")
-            bet = games.ask_number("What's your bet?", 1, player.money+1)
-            player.bet = bet
-        
-        # deal initial 2 cards to everyone 
-        self.deck.deal(self.players + [self.dealer], per_hand = 2)
-        self.dealer.flip_first_card() # hide dealer's first card
-        for player in self.players:
-            print(player)
-        print(self.dealer)
+            # check the players have money - remove any players who don't
+            # NOTE - CANNOT EDIT ARRAY LOOPING OVER HERE, SO CREATE sp = []
+            sp = []
+            for player in self.players:
+                if player.money > 0:
+                    sp.append(player)
+                else:
+                    print(player.name.title(), "has no money left and has been "
+                          "removed from the game.")
+            self.players = sp
 
-        # deal additional cards to players
-        for player in self.players:
-            self.__additional_cards(player)
-
-        self.dealer.flip_first_card() # reveal dealer's first
-
-        if not self.still_playing:
-            # since all players have busted, just show the dealer's hand
+            # if no players left, leave game.
+            if self.players == []:
+                again = 'n'
+                break
+            
+            # place bets
+            for player in self.players:
+                print("\n", player.name.title(), ", you have £", player.money, " in"
+                  " your bankroll. You can only bet up to this amount.", sep = "")
+                bet = games.ask_number("What's your bet?", 1, player.money+1)
+                player.bet = bet
+            
+            # deal initial 2 cards to everyone 
+            self.deck.deal(self.players + [self.dealer], per_hand = 2)
+            self.dealer.flip_first_card() # hide dealer's first card
+            for player in self.players:
+                print(player)
             print(self.dealer)
-        else:
-            # deal additional cards to dealer
-            print(self.dealer)
-            self.__additional_cards(self.dealer)
 
-            if self.dealer.is_busted():
-                # everyone still playing wins
-                for player in self.still_playing:
-                    player.win()
+            # deal additional cards to players
+            for player in self.players:
+                self.__additional_cards(player)
 
+            self.dealer.flip_first_card() # reveal dealer's first
+
+            if not self.still_playing:
+                # since all players have busted, just show the dealer's hand
+                print(self.dealer)
             else:
-                # compare each player still playing to dealer
-                for player in self.still_playing:
-                    if player.total > self.dealer.total:
+                # deal additional cards to dealer
+                print(self.dealer)
+                self.__additional_cards(self.dealer)
+
+                if self.dealer.is_busted():
+                    # everyone still playing wins
+                    for player in self.still_playing:
                         player.win()
-                    elif player.total < self.dealer.total:
-                        player.lose()
-                    else:
-                        player.push()
-                        
-        # remove everyone's cards
-        for player in self.players:
-            player.clear()
-        self.dealer.clear()
+
+                else:
+                    # compare each player still playing to dealer
+                    for player in self.still_playing:
+                        if player.total > self.dealer.total:
+                            player.win()
+                        elif player.total < self.dealer.total:
+                            player.lose()
+                        else:
+                            player.push()
+                            
+            # remove everyone's cards
+            for player in self.players:
+                player.clear()
+            self.dealer.clear()
+
+            again = games.ask_yes_no("\nDo you want to play again?: ")
 
 def main():
     print("\t\tWelcome to Blackjack!\n")
@@ -227,10 +236,8 @@ def main():
 
     game = BJ_Game(names)
 
-    again = None
-    while again != "n":
-        game.play()
-        again = games.ask_yes_no("\nDo you want to play again?: ")
+    game.play()
+        
 
 
 main()
