@@ -70,8 +70,12 @@ class BJ_Hand(cards.Hand):
 class BJ_Player(BJ_Hand):
     """ A Blackjack Player. """
     def is_hitting(self):
-        response = games.ask_yes_no("\n" + self.name + ", do you want a hit? (Y/N): ")
-        return response == "y"
+        if self.total == 21:
+            print("\n", self.name, "has Blackjack.")
+            return False          
+        else:
+            response = games.ask_yes_no("\n" + self.name + ", do you want a hit? (Y/N): ")
+            return response == "y"
 
     def bust(self):
         print(self.name, "busts.")
