@@ -37,7 +37,7 @@ class NW_Player(object):
 
 
 class NW_World(object):
-    """ A New Worlds Location """
+    """ A New World location """
     LOCAL_LINKS = {'Andromeda':['Europa', 'Gaia', 'Pluto', 'Poseidon'],
                    'Europa':['Andromeda', 'Gaia'],
                    'Gaia':['Andromeda', 'Europa', 'Poseidon'],
@@ -56,7 +56,6 @@ class NW_World(object):
         rep +='\n'
         return rep
 
-
 # make a list of all players to run in say_hi()
 class NW_Game(object):
     """ A New World Game """
@@ -66,8 +65,7 @@ class NW_Game(object):
         for name in names:
             player = NW_Player(name)
             self.players.append(player)
-
-    
+          
 # when input 'want to move' - show locations of where can move to due to links
 # when input 'stay in same place', 
     def instructions(self, player):
@@ -141,7 +139,6 @@ Please choose an option:
                     moving = False
                 break
 
-        print(moving)
         return moving
 
     def say_hi(self, player):
